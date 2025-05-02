@@ -1,0 +1,98 @@
+// -*- mode: jsonc -*-
+{
+    "output": "DP-1",
+    "height": 60,
+    "modules-right": [
+        "group/ram-group",
+        "group/cpu-group",
+        "group/gpu-group",
+        "clock",
+        "custom/date"
+    ],
+
+
+
+
+    // RAM
+    // "group/ram-group":{
+    //     "orientation": "inherit",
+    //     "modules": [
+    //         "memory", 
+    //         "custom/memory_icon"
+    //     ]
+    // },
+    // "memory": {
+    //     "interval": 5,
+    //     "format": "{percentage}%",
+    //     "tooltip": false
+    // },
+    // "custom/memory_icon": {
+    //     "format": "<span font_size='120%'> \uefc5 </span>",
+    //     "tooltip": false
+    // },
+
+
+
+    // CPU
+    "group/cpu-group":{
+        "orientation": "inherit",
+        "modules": [
+            "cpu", 
+            "custom/cpu_temp",
+            "custom/cpu_icon"
+        ]
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "{usage}%",
+        "tooltip": false
+    },
+    "custom/cpu_temp": {
+        "exec": "cat /sys/class/thermal/thermal_zone1/temp | awk '{print $1/1000}'",
+        "interval": 5,
+        "format": "{}°C",
+        "tooltip": false
+    },
+    "custom/cpu_icon": {
+        "format": "<span font_size='120%'> \uf4bc </span>",
+        "tooltip": false
+    },
+
+
+
+    // GPU
+    "group/gpu-group":{
+        "orientation": "inherit",
+        "modules": [
+            "custom/gpu_load", 
+            "custom/gpu_temp",
+            "custom/gpu_icon"
+        ]
+    },
+    "custom/gpu_load": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader | awk '{print $1}'",
+        "interval": 5,
+        "format": "{}%",
+        "tooltip": false
+    },
+    "custom/gpu_temp": {
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+        "interval": 5,
+        "format": "{}°C",
+        "tooltip": false
+    },
+    "custom/gpu_icon": {
+        "format": "<span font_size='170%'> \udb82\udcae </span>",
+        "tooltip": false
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false
+    },
+    "custom/date": {
+        "exec": "date '+%A, %B %d'",
+        "interval": 60,
+        "tooltip": false
+    }
+}
