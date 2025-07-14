@@ -1,0 +1,65 @@
+{
+  "inbounds": [
+    {
+      "port": 1,
+      "protocol": "",
+      "settings": {
+        "auth": "",
+        "udp": false
+      },
+      "tag": ""
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "",
+      "settings": {
+        "vnext": [
+          {
+            "address": "",
+            "port": 1,
+            "users": [
+              {
+                "id": "",
+                "flow": "",
+                "encryption": ""
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "",
+        "security": "",
+        "tcpSettings": {
+            "header": {
+                "type": ""
+            }
+        },
+        "realitySettings": {
+          "publicKey": "",
+          "fingerprint": "",
+          "serverName": "",
+          "shortId": "",
+          "spiderX": "",
+          "allowInsecure": false
+        }
+      },
+      "tag": ""
+    },
+    {
+      "protocol": "",
+      "tag": ""
+    }
+  ],
+  "routing": {
+    "domainStrategy": "",
+    "rules": [
+      {
+        "type": "",
+        "outboundTag": "",
+        "domain": [""]
+      }
+    ]
+  }
+}

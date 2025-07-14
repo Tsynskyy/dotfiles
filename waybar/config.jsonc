@@ -1,8 +1,9 @@
 // -*- mode: jsonc -*-
 {
     "output": "DP-1",
-    "height": 60,
     "modules-right": [
+        "custom/display1",
+        "custom/display2",
         "group/ram-group",
         "group/cpu-group",
         "group/gpu-group",
@@ -10,6 +11,30 @@
         "custom/date"
     ],
 
+
+
+
+    // Primary monitor brightness
+    "custom/display1": {
+        "on-click": "ddcutil setvcp 10 0 --display 2",
+        "on-click-right": "ddcutil setvcp 10 100 --display 2",
+        "on-scroll-up": "ddcutil setvcp 10 + 5 --display 2",
+        "on-scroll-down": "ddcutil setvcp 10 - 5 --display 2",
+        "format": "\udb80\udf35",
+        "tooltip": false
+    },
+
+
+
+    // Secondary monitor brightness
+    "custom/display2": {
+        "on-click": "ddcutil setvcp 10 0 --display 1",
+        "on-click-right": "ddcutil setvcp 10 100 --display 1",
+        "on-scroll-up": "ddcutil setvcp 10 + 5 --display 1",
+        "on-scroll-down": "ddcutil setvcp 10 - 5 --display 1",
+        "format": "\udb84\ude55",
+        "tooltip": false
+    },
 
 
 
@@ -85,11 +110,19 @@
         "format": "<span font_size='170%'> \udb82\udcae </span>",
         "tooltip": false
     },
+
+
+
+    // Clock
     "clock": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
         "tooltip": false
     },
+
+
+
+    // Date
     "custom/date": {
         "exec": "date '+%A, %B %d'",
         "interval": 60,
