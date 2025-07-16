@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*-
 {
     "output": "DP-1",
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "custom/display1",
         "custom/display2",
@@ -11,7 +12,17 @@
         "custom/date"
     ],
 
-
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]
+        }
+    },
 
 
     // Primary monitor brightness
