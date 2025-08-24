@@ -36,8 +36,8 @@
 ### Boot Configuration
 
 - **Boot Type:** UEFI
-- **Boot Partition:** 1GB (/dev/nvme0n1p5, 691MB used)
-- **Root Partition:** 143GB (/dev/nvme0n1p6)
+- **Boot Partition:** 1GB
+- **Root Partition:** 143GB
 - **Swap:** 4GB zram-based virtual swap
 
 ## NVIDIA Configuration
